@@ -3,14 +3,6 @@ const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
-const getHome = async (req, res) => {
-  try {
-    res.render("home");
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const registerUser = async (req, res) => {
   try {
     const { userName, email, password, fullName } = req.body;
@@ -162,7 +154,6 @@ const refreshToken = async (req, res) => {
       message: "Profile Success",
       token: newToken,
       refreshToken,
-      user
     });
   } catch (error) {
     return res.status(401).json({
@@ -173,7 +164,6 @@ const refreshToken = async (req, res) => {
 };
 
 module.exports = {
-  getHome,
   registerUser,
   loginUser,
   logoutUser,

@@ -1,7 +1,6 @@
 const {Router} = require('express')
 
 const {
-    getHome,
     registerUser,
     loginUser,
     logoutUser,
@@ -12,8 +11,6 @@ const {
 const {protected} = require("../middleware/tokens")
 
 const router = Router()
-
-router.get('/', getHome)
 
 router.post('/api/register', registerUser)
 router.post('/api/login', loginUser)

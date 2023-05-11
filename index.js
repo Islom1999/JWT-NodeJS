@@ -1,6 +1,5 @@
 const express = require('express')
 const path = require('path')
-const {engine} = require('express-handlebars')
 require('dotenv').config()
 //  REQUIRE DB function
 const configDB = require('./configDB/config')
@@ -17,10 +16,6 @@ configDB()
 // JSON configuration
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
-
-// HBS configuration
-server.engine('.hbs', engine({extname: '.hbs'}))
-server.set('view engine', '.hbs')
 
 // session configuration
 const store = new MongoStore({
